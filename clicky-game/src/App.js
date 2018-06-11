@@ -80,7 +80,7 @@ import "./App.css";
             highScore={this.state.highScore}
             /> 
           <Title></Title>
-          <h2> Click on each of the 12 cards once without clicking the same card twice and you win! Click on the same card twice before you select all 12 and you lose!  </h2>
+          <h2> Click on each of the 10 cards once without clicking the same card twice and you win! Click on the same card twice before you select all 10 and you lose!  </h2>
           {this.state.heroes.map(hero => (
             <HeroCard
               heroClick={this.heroClick}
