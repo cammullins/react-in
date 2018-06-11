@@ -1,0 +1,34 @@
+.nav-bar {
+    position: fixed;
+    background: #a4335b;
+    min-height: 100px;
+    top: 0;
+    bottom: 100%;
+    width: 100%;    
+    text-align: center;
+    box-shadow: 0 14px 28px rgba(0,0,0,.25), 0 10px 10px rgba(0,0,0,.22);
+    color: #fff;
+    font-size: 2em;
+    z-index: 99;
+    white-space: nowrap;
+}
+
+.nav-bar a {
+    color: #fff;
+}
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+li  {
+    display: inline-block;
+    text-align: center;
+    padding-left: 80px;
+    padding-right: 80px;
+    font-size: 24px;
+
+  
+}
+
+

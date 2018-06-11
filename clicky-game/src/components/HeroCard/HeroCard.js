@@ -2,21 +2,14 @@ import React from "react";
 import "./HeroCard.css";
 
 const HeroCard = props => (
-  <div className="card">
+  <div className="card" onClick={() => props.heroClick(props.id)}>
     <div className="img-container">
-      <img alt={props.name} src={props.image} />
-    </div>
-    <div className="content">
-      <ul>
-        <li>
-          <strong>Name:</strong> {props.name}
-        </li>
+      {/* <img alt={props.name} src={props.image} /> */}
+      <img alt={props.image.replace(".jpg", "")} src={require("../../images/" + props.image)} />
+ 
+      </div> 
 
-      </ul>
-    </div>
-    <span onClick={() => props.removeFriend(props.id)} className="remove">
-      𝘅
-    </span>
+ 
   </div>
 );
 
