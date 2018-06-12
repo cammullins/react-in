@@ -6,6 +6,7 @@ const HeroCard = props => (
     <div className="img-container">
       {/* <img alt={props.name} src={props.image} /> */}
       <img alt={props.image.replace(".jpg", "")} src={require("../../images/" + props.image)} />
+      <p>{props.id}</p>
  
       </div> 
 

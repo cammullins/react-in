@@ -13,7 +13,8 @@ import "./App.css";
       heroes,
       score: 0,
       highScore: 0,
-      unselectedHeroes: heroes
+      unselectedHeroes: heroes,
+      progress: "loose"
     };
 
     endGame = () => {
@@ -27,14 +28,15 @@ import "./App.css";
       this.state.heroes.forEach(hero => {
         hero.count = 0;
       });
-      // this.setState({
-      //          message: "You guessed incorrectly!",
-      //          score: 0,
-      //          heroes,
-      //          unselectedHeroes: heroes
-      alert(`You Lose : ${this.state.score}`);
-      this.setState({score: 0});
-      return true;
+      this.setState({
+               message: "You guessed incorrectly!",
+               score: 0,
+               heroes,
+               unselectedHeroes: heroes
+      });
+      // alert(`You Lose : ${this.state.score}`);
+      // this.setState({score: 0});
+      // return true;
       //win game if at 12 wins 
     }
 
@@ -46,14 +48,24 @@ import "./App.css";
        if (name.id === id) {
           if(heroes[i].count === 0) {
             heroes[i].count = heroes[i].count + 1;
-            //this.setState({
-              //        message: "You guessed correctly!",
-              //        score: this.state.score +1,
-              //        heroes, 
-              //        unselectedHeroes: newHeroes
-            this.setState({score : this.state.score +1}, function() {
-            console.log(this.state.score);
-          });
+            this.setState({
+                     message: "You guessed correctly!",
+                     score: this.state.score +1,
+                     heroes
+            });
+            // this.setState({score : this.state.score +1}, function() {
+            console.log(`${name.id}: ${id}`);
+            if(this.state.score === 10){
+              // alert("winner");
+              // this.state.progress = "win";
+              // if (this.state.progress === "win") {
+                this.setState({
+                  message: "You won the game!!!!"
+                })
+              // }
+              setTimeout(this.endGame(), 5000)
+            }
+          // });
           this.state.heroes.sort(() => Math.random() - 0.5)
           return true;
         } else {
@@ -79,8 +91,7 @@ import "./App.css";
             score={this.state.score}
             highScore={this.state.highScore}
             /> 
-          <Title></Title>
-          <h2> Click on each of the 10 cards once without clicking the same card twice and you win! Click on the same card twice before you select all 10 and you lose!  </h2>
+          <Title>Click on each of the 10 cards once without clicking the same card twice and you win!Click on the same card twice before you select all 10 and you lose!</Title>
           {this.state.heroes.map(hero => (
             <HeroCard
               heroClick={this.heroClick}
@@ -96,5 +107,3 @@ import "./App.css";
   } 
   
 export default App;
-  
-
